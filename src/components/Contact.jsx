@@ -21,11 +21,8 @@ const Contact = () => {
     setIsSending(true);
     setStatus('Sending...');
     try {
-      const apiUrl = import.meta.env.VITE_API_URL 
-        ? `${import.meta.env.VITE_API_URL}/api/contact` 
-        : 'http://localhost:5000/api/contact';
-
-      const res = await fetch(apiUrl, {
+      // Automatically uses Vercel's built-in Serverless Function!
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form)
